@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { useIsMobile } from "../../hooks";
+import React, { useState, useMemo } from "react";
+import { useIsMobile, useClickedOutside } from "../../hooks";
 import {
   AiOutlineMenu,
   AiOutlineClose,
@@ -7,23 +7,51 @@ import {
   AiOutlineExclamationCircle,
   AiOutlineFundProjectionScreen,
   AiOutlineContacts,
+  AiOutlineFilePdf,
 } from "react-icons/ai";
 import { Divider } from "@mui/material";
+import Image from "next/image";
+import Link from "next/link";
 interface ActionButtonsProps {
   isActive?: boolean;
   isMobile?: boolean;
+  onClick?: (e: any) => void;
 }
 export default function Navbar() {
+  const navbarClass = useMemo(() => `${Math.random()}`, []);
   const [mobileNavbar, setMobileNavbar] = useState<boolean>(false);
+  useClickedOutside({
+    className: navbarClass,
+    onClickedOutside: () => {
+      setMobileNavbar(false);
+    },
+  });
   const isMobile = useIsMobile({ width: 640 });
   return (
     <nav
-      className={` transition-all delay-200 sticky top-0 p-5 z-20 bg-stone-900 text-white shadow-2xl flex justify-between text-base sm:p-7 sm:text-xl ${
+      className={`${navbarClass} transition-all delay-200 sticky top-0 p-5 z-20 bg-stone-900 text-white shadow-2xl flex justify-between text-base sm:p-6 sm:text-xl ${
         (isMobile && "flex-col") || "items-center"
       }`}
     >
-      <div>MUKUL DUTT</div>
-      <ActionButtons isMobile={isMobile} isActive={mobileNavbar} />
+      <div>
+        {(isMobile && <p className="font-bold">Mukul Dutt</p>) || (
+          <Image
+            src={"/../public/assets/profile-pic.jpeg"}
+            width={"50px"}
+            height={"50px"}
+            style={{ maxWidth: "20px" }}
+            alt="Mukul Dutt"
+            className="rounded-full hover:scale-150"
+          />
+        )}
+      </div>
+      <ActionButtons
+        isMobile={isMobile}
+        isActive={mobileNavbar}
+        onClick={() => {
+          setMobileNavbar(false);
+        }}
+      />
 
       <>
         {(!mobileNavbar && (
@@ -41,26 +69,50 @@ export default function Navbar() {
     </nav>
   );
 }
-function ActionButtons({ isActive, isMobile }: ActionButtonsProps) {
+function ActionButtons({ isActive, isMobile, onClick }: ActionButtonsProps) {
   const iconClass = "block cursor-pointer right-5 select-none text-base";
   return (
     <div
       className={`select-none ${
         (isActive && isMobile && "flex") || "hidden"
       } items-end  sm:flex ${(isMobile && "py-3 flex-col") || "gap-10"}`}
+      onClick={(e) => onClick?.(e)}
     >
-      <ActionButtonItem label="Home">
-        <AiOutlineHome className={iconClass} />
-      </ActionButtonItem>
-      <ActionButtonItem label="About">
-        <AiOutlineExclamationCircle className={iconClass} />
-      </ActionButtonItem>
-      <ActionButtonItem label="Projects">
-        <AiOutlineFundProjectionScreen className={iconClass} />
-      </ActionButtonItem>
-      <ActionButtonItem label="Contact">
-        <AiOutlineContacts className={iconClass} />
-      </ActionButtonItem>
+      <Link href={"/resume"}>
+        <a>
+          <ActionButtonItem label="Resume">
+            <AiOutlineFilePdf className={iconClass} />
+          </ActionButtonItem>
+        </a>
+      </Link>
+      <Link href={"/#home"}>
+        <a>
+          <ActionButtonItem label="Home">
+            <AiOutlineHome className={iconClass} />
+          </ActionButtonItem>
+        </a>
+      </Link>
+      <Link href={"/#about"}>
+        <a>
+          <ActionButtonItem label="About">
+            <AiOutlineExclamationCircle className={iconClass} />
+          </ActionButtonItem>
+        </a>
+      </Link>
+      <Link href={"/#projects"}>
+        <a>
+          <ActionButtonItem label="Projects">
+            <AiOutlineFundProjectionScreen className={iconClass} />
+          </ActionButtonItem>
+        </a>
+      </Link>
+      <Link href={"/#contact"}>
+        <a>
+          <ActionButtonItem label="Contact">
+            <AiOutlineContacts className={iconClass} />
+          </ActionButtonItem>
+        </a>
+      </Link>
     </div>
   );
 }

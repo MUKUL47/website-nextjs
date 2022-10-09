@@ -9,7 +9,7 @@ import ContactMe from "../components/contact-me";
 import Footer from "../components/footer";
 const Home: NextPage = () => {
   return (
-    <main>
+    <main className="scroll-smooth">
       <Navbar />
       <MyIntro />
       <AboutMe />

@@ -19,7 +19,7 @@ interface Project {
 }
 export default function MyProjects() {
   return (
-    <FolioComponentWrapper>
+    <FolioComponentWrapper id="projects">
       <FolioHeaderInfoWrapper
         info="Here you will find some of the personal and clients projects that I created with each project containing its own case study"
         header="MY PROJECTS"

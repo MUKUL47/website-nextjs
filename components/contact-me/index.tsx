@@ -6,7 +6,7 @@ import FolioHeaderInfoWrapper from "../wrappers/folio-header-info.wrapper";
 
 export default function ContactMe() {
   return (
-    <FolioComponentWrapper>
+    <FolioComponentWrapper id="contact">
       <FolioHeaderInfoWrapper
         info="Please reach out to me anytime!"
         header="Let's Connect"

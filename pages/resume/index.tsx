@@ -1,5 +1,12 @@
-import React from "react";
-
+import Navbar from "../../components/navbar";
 export default function index() {
-  return <main>index</main>;
+  return (
+    <main>
+      <Navbar />
+      <iframe
+        src={"https://mukulishere.netlify.app/resume"}
+        className="h-screen w-full"
+      ></iframe>
+    </main>
+  );
 }

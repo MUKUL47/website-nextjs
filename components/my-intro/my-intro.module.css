@@ -1,0 +1,8 @@
+.myintro {
+  background-image: url("../../public/assets/intro-bg.jpg");
+  background-repeat: no-repeat;
+  background-size: calc(100vw) 200vh;
+  /* background-filter: blur(10px); */
+  /* filter: grayscale(100%); */
+  /* z-index: -1; */
+}

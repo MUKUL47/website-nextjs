@@ -5,7 +5,7 @@ import FolioHeaderInfoWrapper from "../wrappers/folio-header-info.wrapper";
 
 export default function AboutMe() {
   return (
-    <FolioComponentWrapper>
+    <FolioComponentWrapper id="about">
       <FolioHeaderInfoWrapper
         info="Here you will find more information about me, what I do, and my current
       skills mostly in terms of programming and technology"
@@ -29,14 +29,12 @@ function AboutMeDetail() {
           Check out some of my work in the Projects section.
         </p>
         <p>
-          {"I'm"} a Frontend Web Developer building the Front-end of Websites
-          and Web Applications that leads to the success of the overall product.
-          Check out some of my work in the Projects section.
-        </p>
-        <p>
-          {"I'm"} a Frontend Web Developer building the Front-end of Websites
-          and Web Applications that leads to the success of the overall product.
-          Check out some of my work in the Projects section.
+          Being motivated with good attitude, strong development skills. Can
+          adapt various ongoing technologies. Ability to solve programming
+          related questions using various data structures. Love to code and
+          develop various games, applications libraries etc using various
+          javascript technologies such as Angular, React, MongoDB, Electron,
+          Express, JScanvas, TypeScript and have a total experience of 3+ Years.
         </p>
       </section>
     </div>
@@ -54,6 +52,7 @@ function SkillSet() {
       "ElectronJs",
       "RxJs",
       "Canvas",
+      "Angular",
       "Express",
       "Next.Js",
       "Nest.Js",
@@ -69,7 +68,7 @@ function SkillSet() {
           return (
             <p
               key={skill}
-              className="px-5 py-2 text-white bg-gray-600 rounded-md"
+              className="px-5 py-2 text-white bg-blue-600 rounded-md"
             >
               {skill}
             </p>
