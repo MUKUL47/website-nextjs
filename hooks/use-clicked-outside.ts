@@ -5,12 +5,13 @@ interface Props {
 }
 const useClickedOutside = ({ className, onClickedOutside }: Props): void => {
   useEffect(() => {
-    const checkClick = (e: Event): void => {
+    const checkClick = (e: MouseEvent): void => {
       if (
         e
           .composedPath()
-          ?.filter?.((v) => [...(v?.classList || [])]?.includes?.(className))
-          .length === 0
+          ?.filter?.((v: any) =>
+            [...(v?.classList || [])]?.includes?.(className)
+          ).length === 0
       ) {
         onClickedOutside();
       }
