@@ -13,6 +13,14 @@ interface Props {
   project: Title;
 }
 export default function ProjectById({ project }: Props) {
+  /**
+   *  private static readonly PROJECT_PATH_PREFIX = "/../public/assets/my-projects";
+  public static getProjectSource(src: string): string {
+    if (src.toLowerCase().startsWith("http")) return src;
+    return `${this.PROJECT_PATH_PREFIX}${src}`;
+  }
+   */
+  let image = project?.demo || project.img;
   return (
     <main>
       <Navbar />
@@ -23,7 +31,10 @@ export default function ProjectById({ project }: Props) {
         ></FolioHeaderInfoWrapper>
         <FolioDescriptionWrapper className="justify-center">
           <Image
-            src={Util.getProjectSource(project?.demo || project.img)}
+            src={
+              (image.toLowerCase().startsWith("http") && image) ||
+              `/../public/assets/my-projects${image}`
+            }
             width={"800"}
             height={"500"}
             className="rounded-t-md transition-all hover:scale-150"
