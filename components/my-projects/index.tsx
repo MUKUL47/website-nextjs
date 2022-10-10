@@ -65,10 +65,11 @@ function ProjectImage({ title }: { title: Title }) {
           }
           width="250px"
           key={title.name}
+          priority
           height="250px"
           className="rounded-t-md transition-all hover:scale-150"
           layout="responsive"
-          loading="lazy"
+          // loading="lazy"
           alt="Project"
         />
       </ProjectLinkWrapper>
