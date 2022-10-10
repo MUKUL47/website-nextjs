@@ -1,7 +1,9 @@
 import React, { useMemo } from "react";
+import { MyPersonalInfo } from "../../utils";
 import FolioComponentWrapper from "../wrappers/folio-component.wrapper";
 import FolioDescriptionWrapper from "../wrappers/folio-description.wrapper";
 import FolioHeaderInfoWrapper from "../wrappers/folio-header-info.wrapper";
+import SkillSets from "./skill-sets";
 
 export default function AboutMe() {
   return (
@@ -13,7 +15,10 @@ export default function AboutMe() {
       />
       <FolioDescriptionWrapper>
         <AboutMeDetail />
-        <SkillSet />
+        <div className="flex flex-col gap-12 flex-1">
+          <strong className="text-2xl">My Skills</strong>
+          <SkillSets skills={MyPersonalInfo.SKILL_SETS} />
+        </div>
       </FolioDescriptionWrapper>
     </FolioComponentWrapper>
   );
@@ -36,44 +41,6 @@ function AboutMeDetail() {
           javascript technologies such as Angular, React, MongoDB, Electron,
           Express, JScanvas, TypeScript and have a total experience of 3+ Years.
         </p>
-      </section>
-    </div>
-  );
-}
-function SkillSet() {
-  const skills = useMemo(() => {
-    return [
-      "HTML",
-      "CSS",
-      "JavaScript",
-      "React",
-      "Redux",
-      "NodeJs",
-      "ElectronJs",
-      "RxJs",
-      "Canvas",
-      "Angular",
-      "Express",
-      "Next.Js",
-      "Nest.Js",
-      "MongoDB",
-      "Express",
-    ];
-  }, []);
-  return (
-    <div className="flex flex-col gap-12 flex-1">
-      <strong className="text-2xl">My Skills</strong>
-      <section className="flex flex-wrap gap-2">
-        {skills.map((skill) => {
-          return (
-            <p
-              key={skill}
-              className="px-5 py-2 text-white bg-blue-600 rounded-md"
-            >
-              {skill}
-            </p>
-          );
-        })}
       </section>
     </div>
   );

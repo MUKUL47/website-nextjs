@@ -29,7 +29,7 @@ export default function Navbar() {
   const isMobile = useIsMobile({ width: 640 });
   return (
     <nav
-      className={`${navbarClass} transition-all delay-200 sticky top-0 p-5 z-20 bg-stone-900 text-white shadow-2xl flex justify-between text-base sm:p-6 sm:text-xl ${
+      className={`${navbarClass} transition-all delay-200 sticky top-0 p-4 z-20 bg-stone-900 text-white shadow-2xl flex justify-between text-base sm:p-4 sm:text-xl ${
         (isMobile && "flex-col") || "items-center"
       }`}
     >
@@ -37,8 +37,8 @@ export default function Navbar() {
         {(isMobile && <p className="font-bold">Mukul Dutt</p>) || (
           <Image
             src={"/../public/assets/profile-pic.jpeg"}
-            width={"50px"}
-            height={"50px"}
+            width={"40px"}
+            height={"40px"}
             style={{ maxWidth: "20px" }}
             alt="Mukul Dutt"
             className="rounded-full hover:scale-150"
@@ -124,7 +124,7 @@ function ActionButtonItem({
   children?: React.ReactNode;
 }) {
   return (
-    <div className="p-2 rounded-sm cursor-pointer hover:bg-gray-700 w-full justify-end flex items-center gap-2 ">
+    <div className="p-2 rounded-sm cursor-pointer hover:bg-gray-700 w-full justify-end flex items-center gap-2 sm:p-1">
       {children}
       {label}
     </div>

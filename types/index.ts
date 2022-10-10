@@ -5,6 +5,7 @@ export type Title = {
   description: string;
   tech: string;
   info: string;
+  demo?: string;
 };
 export interface Project {
   category: string;

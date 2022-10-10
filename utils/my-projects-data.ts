@@ -85,7 +85,7 @@ export default [
         description: "A simple operator precedence calculator.",
         link: "https://github.com/MUKUL47/Operator-Precedence-Calculator",
         tech: "HTML, CSS & Javascript",
-        demo: "https://camo.githubusercontent.com/dc84aff5b5ef4ee77d4ab2c08a56c7cbb0ee3e84cd9cc9595624656d0e179467/68747470733a2f2f692e696d67666c69702e636f6d2f3271676c336c2e676966",
+        demo: "https://i.imgflip.com/2qgl3l.gif",
         info: `Simple javascript calculator with operator precedence parsing with allows complex operations such as "9*10/2*200-1+1"`,
       },
       {
@@ -148,7 +148,7 @@ export default [
         description: "A simple multi-thread library for nodejs run time.",
         link: "https://github.com/MUKUL47/node-threader",
         tech: "Javascript",
-        demo: "assets/demo/node-threader.png",
+        demo: "/demo/node-threader.png",
         info: `
                     Inspired from electron-boiler-plate where we can execute heavy synchronous function in a separate thread,
                     <br/>
@@ -163,7 +163,7 @@ export default [
         description: "A simple and easy to use JSON validator.",
         link: "https://github.com/MUKUL47/jsonvalidator",
         tech: "Javascript",
-        demo: "assets/demo/json-validator.png",
+        demo: "/demo/json-validator.png",
         info: `
                     JSON validator library where json object is validated based on schema syntax provided by user, each and every key and value is validated with respect to schema if something doesn't match error is throw.
                     <br/>
@@ -176,7 +176,7 @@ export default [
         description: "Data Structures and Algorthim in Java.",
         link: "https://github.com/MUKUL47/LOGICS",
         tech: "Java & JavaScript",
-        demo: "assets/demo/logics.png",
+        demo: "/demo/logics.png",
         info: `
                     Datastructures and algorithms coded in java such as Stack, Graph, Encryption, String, hackerrank problem solutions and various other programming solutions.
                     `,
@@ -187,7 +187,7 @@ export default [
         description: "Simple boiler plate for electron using worker thread",
         link: "https://github.com/MUKUL47/electron-thread-boilderplate",
         tech: "Javascript",
-        demo: "assets/demo/electron-thread.gif",
+        demo: "/demo/electron-thread.gif",
         info: `
                     Electron-main process is by default running on single thread, so from render process if there's request to process/ load/ CRUD huge amount of synchronous data from OS UI freezes since browser window is also running on the same thread.
                     <br/>
@@ -290,7 +290,7 @@ export default [
         img: "/cards/tetris.png",
         description: "A simple tetris game.",
         link: "https://github.com/MUKUL47/Tetris",
-        demo: "assets/demo/tetris.gif",
+        demo: "/demo/tetris.gif",
         tech: "HTML, CSS & Javascript",
         info: `Simple tetris clone made entirely in javascript and utilized classes concepts as an objects such as Playground which will hold all the pieces together, Blocks for various tetris formations such as S-Block, H-Block etc and Brain class which maintains the whole rendering draw function controlling user actions and overall game logic.
                     `,

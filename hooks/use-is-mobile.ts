@@ -1,10 +1,10 @@
-import React, { useLayoutEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 interface Props {
   width?: number;
 }
 const useIsMobile = ({ width }: Props): boolean => {
   const [isMobile, setIsMobile] = useState(false);
-  useLayoutEffect(() => {
+  useEffect(() => {
     const updateSize = (): void => {
       setIsMobile(window.innerWidth < (width || 768));
     };

@@ -1,6 +1,7 @@
 import React from "react";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import GitHubIcon from "@mui/icons-material/GitHub";
+import EmailIcon from "@mui/icons-material/Email";
 import { TbBrandNextjs, TbBrandTailwind } from "react-icons/tb";
 import { AiTwotoneHeart } from "react-icons/ai";
 import { MyPersonalInfo } from "../../utils";
@@ -33,6 +34,14 @@ export default function Footer() {
               rel="noreferrer"
             >
               <GitHubIcon className="hover:scale-125 transition-all" />
+            </a>
+            <a
+              href={`mailto:${MyPersonalInfo.EMAIL}`}
+              title={MyPersonalInfo.EMAIL}
+              target={"_blank"}
+              rel="noreferrer"
+            >
+              <EmailIcon className="hover:scale-125 transition-all" />
             </a>
           </span>
         </div>
