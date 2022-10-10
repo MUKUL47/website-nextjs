@@ -5,18 +5,9 @@ import FolioHeaderInfoWrapper from "../wrappers/folio-header-info.wrapper";
 import Image from "next/image";
 import "./my-project.module.css";
 import Util, { myProjectsData } from "../../utils";
-type Title = {
-  name: string;
-  img: string;
-  link: string;
-  description: string;
-  tech: string;
-  info: string;
-};
-interface Project {
-  category: string;
-  titles: Title[];
-}
+import { Project, Title } from "../../types";
+import Link from "next/link";
+
 export default function MyProjects() {
   return (
     <FolioComponentWrapper id="projects">
@@ -65,19 +56,30 @@ function ProjectType({ label }: { label: string }) {
 function ProjectImage({ title }: { title: Title }) {
   return (
     <div className="relative project-image flex flex-col cursor-pointer">
-      <Image
-        src={Util.getProjectSource(title.img)}
-        width="250px"
-        key={title.name}
-        height="250px"
-        className="rounded-t-md transition-all hover:scale-150"
-        layout="responsive"
-        loading="lazy"
-        alt="Project"
-      />
+      <ProjectLinkWrapper name={title.name}>
+        <Image
+          src={Util.getProjectSource(title.img)}
+          width="250px"
+          key={title.name}
+          height="250px"
+          className="rounded-t-md transition-all hover:scale-150"
+          layout="responsive"
+          loading="lazy"
+          alt="Project"
+        />
+      </ProjectLinkWrapper>
       <strong className="p-2 py-3 bg-black text-white rounded-b-md flex-1 text-sm text-center">
-        {title.name}
+        <ProjectLinkWrapper name={title.name}>{title.name}</ProjectLinkWrapper>
       </strong>
     </div>
   );
+}
+function ProjectLinkWrapper({
+  name,
+  children,
+}: {
+  name: string;
+  children: React.ReactNode;
+}) {
+  return <Link href={Util.getProjectLinkFromName(name || "")}>{children}</Link>;
 }

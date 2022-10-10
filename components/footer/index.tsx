@@ -3,6 +3,7 @@ import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import { TbBrandNextjs, TbBrandTailwind } from "react-icons/tb";
 import { AiTwotoneHeart } from "react-icons/ai";
+import { MyPersonalInfo } from "../../utils";
 export default function Footer() {
   return (
     <footer className="bg-gray-900 p-5 text-white font-bold py-11 flex flex-col sm:px-60">
@@ -18,8 +19,21 @@ export default function Footer() {
         <div className="flex flex-col gap-5">
           <strong>Social</strong>
           <span className="flex gap-2">
-            <LinkedInIcon className="hover:scale-125 transition-all opacity-100 z-20" />
-            <GitHubIcon className="hover:scale-125 transition-all" />
+            <a
+              href={MyPersonalInfo.LINKEDIN_PROFILE}
+              target={"_blank"}
+              rel="noreferrer"
+            >
+              <LinkedInIcon className="hover:scale-125 transition-all opacity-100 z-20" />
+            </a>
+
+            <a
+              href={MyPersonalInfo.GITHUB_PROFILE}
+              target={"_blank"}
+              rel="noreferrer"
+            >
+              <GitHubIcon className="hover:scale-125 transition-all" />
+            </a>
           </span>
         </div>
       </div>

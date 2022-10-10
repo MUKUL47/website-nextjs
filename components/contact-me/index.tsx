@@ -1,5 +1,6 @@
 import React from "react";
 import { Input, TextArea } from "../inputs";
+import ButtonAnimationWrapper from "../wrappers/button-animation.wrapper";
 import FolioComponentWrapper from "../wrappers/folio-component.wrapper";
 import FolioDescriptionWrapper from "../wrappers/folio-description.wrapper";
 import FolioHeaderInfoWrapper from "../wrappers/folio-header-info.wrapper";
@@ -17,13 +18,20 @@ export default function ContactMe() {
           method="POST"
           className="flex flex-col gap-5 w-full"
         >
-          <Input type="text" id="name" name="name" placeholder="Name" />
+          <Input
+            type="text"
+            id="name"
+            name="name"
+            label="Enter Name"
+            placeholder="Name"
+          />
 
           <Input
             type="email"
             id="email"
             name="email"
             required
+            label="Enter Email"
             placeholder="Email"
           />
           <TextArea
@@ -33,14 +41,14 @@ export default function ContactMe() {
             placeholder="Message"
             required
           />
-          <span>
-            <input
+          <ButtonAnimationWrapper>
+            <Input
               type="submit"
               value="Submit"
               id="submit-btn"
-              className=" bg-black text-center px-4 py-2 text-white rounded-md"
+              className="bg-black text-center px-4 py-2 text-white rounded-md w-32 cursor-pointer"
             />
-          </span>
+          </ButtonAnimationWrapper>
         </form>
       </FolioDescriptionWrapper>
     </FolioComponentWrapper>

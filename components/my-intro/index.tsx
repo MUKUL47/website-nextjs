@@ -3,6 +3,8 @@ import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import { VscDebugStart } from "react-icons/vsc";
 import myintroStyles from "./my-intro.module.css";
+import Link from "next/link";
+import { MyPersonalInfo } from "../../utils";
 export default function MyIntro() {
   return (
     <section id="home">
@@ -19,7 +21,11 @@ export default function MyIntro() {
               product
             </p>
             <button className="hidden sm:block p-4 rounded-full cursor-pointer bg-black text-white">
-              <VscDebugStart className="text-2xl" />
+              <Link href="/#about">
+                <a>
+                  <VscDebugStart className="text-2xl" />
+                </a>
+              </Link>
             </button>
           </div>
         </div>
@@ -28,18 +34,30 @@ export default function MyIntro() {
   );
 }
 function SocialLinks() {
-  const linkStyle = { fontSize: "2.25rem", color: "#FFF" };
+  const linkStyle = { fontSize: "2.25rem", color: "#FFF", cursor: "pointer" };
   return (
     <div className="justify-center pt-14 h-48 w-11 fixed top-2/4 -translate-y-1/2 hover:w-24 delay-100 transition-all hidden sm:block">
       <div className="bg-slate-600 flex flex-col rounded-r-md p-1 gap-2 items-center py-2">
-        <LinkedInIcon
-          style={linkStyle}
-          className="hover:scale-125 transition-all opacity-100 z-20"
-        />
-        <GitHubIcon
-          style={{ ...linkStyle, fontSize: "1.75rem" }}
-          className="hover:scale-125 transition-all"
-        />
+        <a
+          href={MyPersonalInfo.LINKEDIN_PROFILE}
+          target={"_blank"}
+          rel="noreferrer"
+        >
+          <LinkedInIcon
+            style={linkStyle}
+            className="hover:scale-125 transition-all opacity-100 z-20"
+          />
+        </a>
+        <a
+          href={MyPersonalInfo.GITHUB_PROFILE}
+          target={"_blank"}
+          rel="noreferrer"
+        >
+          <GitHubIcon
+            style={{ ...linkStyle, fontSize: "1.75rem" }}
+            className="hover:scale-125 transition-all"
+          />
+        </a>
       </div>
     </div>
   );
