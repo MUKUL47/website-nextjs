@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import React, { useState, useMemo } from "react";
 import { useIsMobile, useClickedOutside } from "../../hooks";
 import {
@@ -35,13 +36,10 @@ export default function Navbar() {
     >
       <div>
         {(isMobile && <p className="font-bold">Mukul Dutt</p>) || (
-          <Image
-            src={"/../public/assets/profile-pic.jpeg"}
-            width={"40px"}
-            height={"40px"}
-            style={{ maxWidth: "20px" }}
+          <img
+            src={"../../assets/profile-pic.jpeg"}
             alt="Mukul Dutt"
-            className="rounded-full hover:scale-150"
+            className="rounded-full transition-all delay-100 hover:scale-150 w-10 h-10"
           />
         )}
       </div>

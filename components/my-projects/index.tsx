@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import React, { useState, useEffect } from "react";
 import FolioComponentWrapper from "../wrappers/folio-component.wrapper";
 import FolioDescriptionWrapper from "../wrappers/folio-description.wrapper";
@@ -36,7 +37,7 @@ function ProjectCards({ titles }: { titles: Title[] }) {
     <data
       className="grid gap-5 w-full"
       style={{
-        gridTemplateColumns: "repeat(auto-fit, minmax(200px,1fr))",
+        gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))",
       }}
     >
       {titles!.map?.((title) => {
@@ -56,24 +57,21 @@ function ProjectType({ label }: { label: string }) {
 function ProjectImage({ title }: { title: Title }) {
   const image = title.img;
   return (
-    <div className="relative project-image flex flex-col cursor-pointer">
+    <div className="relative project-image flex flex-col cursor-pointer  transition-all hover:scale-110">
       <ProjectLinkWrapper name={title.name}>
-        <Image
+        <img
           src={
             (image.toLowerCase().startsWith("http") && image) ||
-            `/../public/assets/my-projects${image}`
+            `../../assets/my-projects${image}`
           }
           width="250px"
           key={title.name}
-          priority
           height="250px"
-          className="rounded-t-md transition-all hover:scale-150"
-          layout="responsive"
-          // loading="lazy"
+          className="rounded-t-md w-full h-full"
           alt="Project"
         />
       </ProjectLinkWrapper>
-      <strong className="p-2 py-3 bg-black text-white rounded-b-md flex-1 text-sm text-center">
+      <strong className=" py-3 bg-black text-white rounded-b-md flex-1 text-sm text-center">
         <ProjectLinkWrapper name={title.name}>{title.name}</ProjectLinkWrapper>
       </strong>
     </div>

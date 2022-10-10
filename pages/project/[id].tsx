@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import Image from "next/image";
 import SkillSets from "../../components/about-me/skill-sets";
 import Navbar from "../../components/navbar";
@@ -13,13 +14,6 @@ interface Props {
   project: Title;
 }
 export default function ProjectById({ project }: Props) {
-  /**
-   *  private static readonly PROJECT_PATH_PREFIX = "/../public/assets/my-projects";
-  public static getProjectSource(src: string): string {
-    if (src.toLowerCase().startsWith("http")) return src;
-    return `${this.PROJECT_PATH_PREFIX}${src}`;
-  }
-   */
   let image = project?.demo || project.img;
   return (
     <main>
@@ -30,14 +24,13 @@ export default function ProjectById({ project }: Props) {
           header={project.name}
         ></FolioHeaderInfoWrapper>
         <FolioDescriptionWrapper className="justify-center">
-          <Image
+          <img
             src={
               (image.toLowerCase().startsWith("http") && image) ||
-              `/../public/assets/my-projects${image}`
+              `/../../assets/my-projects${image}`
             }
-            width={"800"}
-            height={"500"}
-            className="rounded-t-md transition-all hover:scale-150"
+            style={{ width: "800px", height: "500px" }}
+            className="rounded-t-md transition-all hover:scale-110"
             loading="lazy"
             alt="Project"
           />
