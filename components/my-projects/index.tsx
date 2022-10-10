@@ -54,11 +54,15 @@ function ProjectType({ label }: { label: string }) {
   );
 }
 function ProjectImage({ title }: { title: Title }) {
+  const image = title.img;
   return (
     <div className="relative project-image flex flex-col cursor-pointer">
       <ProjectLinkWrapper name={title.name}>
         <Image
-          src={Util.getProjectSource(title.img)}
+          src={
+            (image.toLowerCase().startsWith("http") && image) ||
+            `/../public/assets/my-projects${image}`
+          }
           width="250px"
           key={title.name}
           height="250px"
