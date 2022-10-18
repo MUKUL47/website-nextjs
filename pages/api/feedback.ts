@@ -15,7 +15,7 @@ export default async function handler(
 ) {
   if (req.method === "POST") {
     const { email, name, message } = req.body;
-    if (!checkBody(req)) return res.redirect("/");
+    if (!checkBody(req)) return res.send({ success: true });
     const body = MailService.generateMailBody(
       `
     <p>Name : </p><span><strong>${name}</strong></span>
@@ -27,7 +27,7 @@ export default async function handler(
       `Website feedback - ${email} (${new Date().toDateString()})`
     );
     await MailService.sendMail(body, true);
-    return res.status(302).redirect("/");
+    return res.send({ success: true });
   }
   return res.status(405).send("NOT ALLOWED");
 }
