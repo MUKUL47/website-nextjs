@@ -1,18 +1,16 @@
 /* eslint-disable @next/next/no-img-element */
-import React, { useState, useMemo } from "react";
-import { useIsMobile, useClickedOutside } from "../../hooks";
-import {
-  AiOutlineMenu,
-  AiOutlineClose,
-  AiOutlineHome,
-  AiOutlineExclamationCircle,
-  AiOutlineFundProjectionScreen,
-  AiOutlineContacts,
-  AiOutlineFilePdf,
-} from "react-icons/ai";
-import { Divider } from "@mui/material";
-import Image from "next/image";
 import Link from "next/link";
+import React, { useEffect, useMemo, useState } from "react";
+import {
+  AiOutlineClose,
+  AiOutlineContacts,
+  AiOutlineExclamationCircle,
+  AiOutlineFilePdf,
+  AiOutlineFundProjectionScreen,
+  AiOutlineHome,
+  AiOutlineMenu,
+} from "react-icons/ai";
+import { useClickedOutside, useIsMobile } from "../../hooks";
 interface ActionButtonsProps {
   isActive?: boolean;
   isMobile?: boolean;
@@ -68,6 +66,10 @@ export default function Navbar() {
   );
 }
 function ActionButtons({ isActive, isMobile, onClick }: ActionButtonsProps) {
+  const [url, setUrl] = useState("");
+  useEffect(() => {
+    setUrl(window?.location.pathname || "");
+  }, []);
   const iconClass = "block cursor-pointer right-5 select-none text-base";
   return (
     <div
@@ -76,7 +78,7 @@ function ActionButtons({ isActive, isMobile, onClick }: ActionButtonsProps) {
       } items-end  sm:flex ${(isMobile && "py-3 flex-col") || "gap-10"}`}
       onClick={(e) => onClick?.(e)}
     >
-      <Link href={"/resume"}>
+      <Link href={`/resume`}>
         <a>
           <ActionButtonItem label="Resume">
             <AiOutlineFilePdf className={iconClass} />
@@ -104,7 +106,7 @@ function ActionButtons({ isActive, isMobile, onClick }: ActionButtonsProps) {
           </ActionButtonItem>
         </a>
       </Link>
-      <Link href={"/#contact"}>
+      <Link href={`${url}#contact`}>
         <a>
           <ActionButtonItem label="Contact">
             <AiOutlineContacts className={iconClass} />

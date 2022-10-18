@@ -4,7 +4,6 @@ import ButtonAnimationWrapper from "../wrappers/button-animation.wrapper";
 import FolioComponentWrapper from "../wrappers/folio-component.wrapper";
 import FolioDescriptionWrapper from "../wrappers/folio-description.wrapper";
 import FolioHeaderInfoWrapper from "../wrappers/folio-header-info.wrapper";
-
 export default function ContactMe() {
   return (
     <FolioComponentWrapper id="contact">
@@ -16,6 +15,7 @@ export default function ContactMe() {
         <form
           name="contact"
           method="POST"
+          action="/api/feedback"
           className="flex flex-col gap-5 w-full"
         >
           <Input

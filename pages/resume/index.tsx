@@ -1,14 +1,17 @@
+import ContactMe from "../../components/contact-me";
+import Footer from "../../components/footer";
 import Navbar from "../../components/navbar";
 import NavbarFooterWrapper from "../../components/wrappers/navbar-footer.wrapper";
 export default function index() {
   return (
     <main>
-      <NavbarFooterWrapper className="flex">
-        <iframe
-          src={"https://mukulishere.netlify.app/resume"}
-          className="w-full"
-        ></iframe>
-      </NavbarFooterWrapper>
+      <Navbar />
+      <iframe
+        src={"https://mukulishere.netlify.app/resume"}
+        className="w-full h-screen"
+      ></iframe>
+      <ContactMe />
+      <Footer />
     </main>
   );
 }
