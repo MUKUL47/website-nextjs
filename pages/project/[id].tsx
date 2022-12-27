@@ -1,7 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import GitHubIcon from "@mui/icons-material/GitHub";
 import { useRouter } from "next/router";
-import { useLayoutEffect } from "react";
+import React, { useLayoutEffect, useState } from "react";
 import SkillSets from "../../components/about-me/skill-sets";
 import ContactMe from "../../components/contact-me";
 import Footer from "../../components/footer";
@@ -16,12 +16,23 @@ interface Props {
 }
 export default function ProjectById() {
   const router = useRouter();
-  const project = Util.getProjectFromId((router.query?.id as string) || "");
-  let image = project?.demo || project?.img;
+  const [projectInfo, setProjectInfo] = useState<{
+    project: Title;
+    image: string;
+  }>();
   useLayoutEffect(() => {
-    if (!image) router.push("/404");
-  }, []);
-  return !!project ? <ProjectInfo project={project} image={image!} /> : null;
+    if (router.isReady) {
+      const project = Util.getProjectFromId((router.query?.id as string) || "");
+      let image = project?.demo || project?.img;
+      if (!project) router.push("/404");
+      else {
+        setProjectInfo({ image: image!, project });
+      }
+    }
+  }, [router.isReady]);
+  return !!projectInfo ? (
+    <ProjectInfo project={projectInfo.project} image={projectInfo.image!} />
+  ) : null;
 }
 
 function ProjectInfo({ project, image }: { image: string; project: Title }) {
