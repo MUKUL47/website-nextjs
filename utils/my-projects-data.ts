@@ -286,6 +286,22 @@ export default [
                     `,
       },
       {
+        name: "Chinese Checkers",
+        img: "https://raw.githubusercontent.com/MUKUL47/Chinese-Checkers/main/src/assets/demo.PNG",
+        description: "Multiplayer Chinese-Checkers",
+        link: "https://github.com/MUKUL47/Chinese-Checkers",
+        demo: "https://raw.githubusercontent.com/MUKUL47/Chinese-Checkers/main/src/assets/demo.PNG",
+        tech: "React, Typescipt, Socket.Io, Node.JS",
+        info: `Chinese Checkers game using a combination of TypeScript, React, Node, and SocketIO. 
+               <br/>TypeScript is a superset of JavaScript that adds optional static typing, helping us to catch errors before the code is executed. 
+               <br/>React is a JavaScript library for building user interfaces, which allows us to create a smooth and responsive game experience. 
+               <br/>Node is a runtime environment for executing JavaScript on the server side, enabling us to set up the game logic and handle multiplayer interactions. 
+               <br/>Finally, SocketIO is a library for real-time, bidirectional communication between web clients and servers, allowing us to establish a connection between multiple players in a room.
+               <br/> One of the key features of our Chinese Checkers game is the ability for users to create their own room or join an existing one. This flexibility allows players to invite their friends or join public rooms to challenge other players from around the world. In addition to this, we have implemented a ranking system that keeps track of each player's wins and losses, determining who is leading the game. This ranking system adds a competitive element to the game and provides a sense of accomplishment for all players.
+                Overall, our Chinese Checkers game is a technically advanced and highly interactive online multiplayer game. Whether you are a beginner or an experienced player, we believe that you will enjoy the challenge and excitement of this classic board game.
+              `,
+      },
+      {
         name: "Tetris",
         img: "/cards/tetris.png",
         description: "A simple tetris game.",

@@ -1,20 +1,30 @@
 /* eslint-disable @next/next/no-img-element */
-import Image from "next/image";
+import GitHubIcon from "@mui/icons-material/GitHub";
+import { useRouter } from "next/router";
+import { useLayoutEffect } from "react";
 import SkillSets from "../../components/about-me/skill-sets";
+import ContactMe from "../../components/contact-me";
+import Footer from "../../components/footer";
 import Navbar from "../../components/navbar";
 import FolioComponentWrapper from "../../components/wrappers/folio-component.wrapper";
 import FolioDescriptionWrapper from "../../components/wrappers/folio-description.wrapper";
 import FolioHeaderInfoWrapper from "../../components/wrappers/folio-header-info.wrapper";
-import GitHubIcon from "@mui/icons-material/GitHub";
 import { Title } from "../../types";
 import Util from "../../utils";
-import Footer from "../../components/footer";
-import ContactMe from "../../components/contact-me";
 interface Props {
   project: Title;
 }
-export default function ProjectById({ project }: Props) {
-  let image = project?.demo || project.img;
+export default function ProjectById() {
+  const router = useRouter();
+  const project = Util.getProjectFromId((router.query?.id as string) || "");
+  let image = project?.demo || project?.img;
+  useLayoutEffect(() => {
+    if (!image) router.push("/404");
+  }, []);
+  return !!project ? <ProjectInfo project={project} image={image!} /> : null;
+}
+
+function ProjectInfo({ project, image }: { image: string; project: Title }) {
   return (
     <main>
       <Navbar />
@@ -86,22 +96,22 @@ function Description({
   );
 }
 
-export const getServerSideProps = async ({ params }: { params: any }) => {
-  try {
-    const project = Util.getProjectFromId(params?.id || "");
-    if (!project) throw new Error();
-    // project.img = project.demo || project.img;
-    return {
-      props: {
-        project,
-      },
-    };
-  } catch (e) {
-    return {
-      redirect: {
-        permanent: false,
-        destination: "/404",
-      },
-    };
-  }
-};
+// export const getServerSideProps = async ({ params }: { params: any }) => {
+//   try {
+//     const project = Util.getProjectFromId(params?.id || "");
+//     if (!project) throw new Error();
+//     // project.img = project.demo || project.img;
+//     return {
+//       props: {
+//         project,
+//       },
+//     };
+//   } catch (e) {
+//     return {
+//       redirect: {
+//         permanent: false,
+//         destination: "/404",
+//       },
+//     };
+//   }
+// };
